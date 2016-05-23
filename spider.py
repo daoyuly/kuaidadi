@@ -32,6 +32,7 @@ class kuaidadiSpider:
         return content
 
     def getLocal(self,longitude,latitude):
+        print '.'
         area = 'http://restapi.amap.com/v3/geocode/regeo?key=28d67f7de0e3b3621b1e1b1746bbd68d&s=rsv3&location='+str(longitude)+','+str(latitude)+'&radius=1000&platform=JS&logversion=2.0&sdkversion=1.3&appname=http%3A%2F%2Fv.kuaidadi.com%2F&csid=A4AF9286-5FE5-4536-92A8-F327415243AF'
         opener = urllib2.build_opener()
         opener.addheaders = [self.__headers]    
@@ -62,7 +63,7 @@ class kuaidadiSpider:
               longitude = i[1]
               latitude = i[2]
               value = i[3]
-              address = ''#self.getLocal(longitude,latitude);
+              address ='' #self.getLocal(longitude,latitude);
               #dataFormat = index+','+cityID+','+date+','+hour+','+longitude+','+latitude+','+value
               dataFormat = '%d,%s,%s,%s,%s,%s,%s,%s\n\r' %(index,cityID,date,hour,longitude,latitude,value,address)
               localFile.write(dataFormat)

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding: utf-8
 
-from spider_2 import kuaidadiSpider
+from spider import kuaidadiSpider
 
 urlList = []
 point = 'http://v.kuaidadi.com/point?cityId=110100&scope=city&date=0&dimension=satisfy&num=300'
@@ -13,7 +13,7 @@ dimension_list = ['distribute','satisfy','demand','response']
 
 for dimension in dimension_list:
     print dimension
-    for i in range(0,2):
+    for i in range(-417,-410):
         fileName = '%s.csv' %(dimension)
         dadi = kuaidadiSpider(fileName)
         area = 'http://v.kuaidadi.com/point?cityId=110100&scope=city&date=%d&dimension=%s&num=10'%(i,dimension)
